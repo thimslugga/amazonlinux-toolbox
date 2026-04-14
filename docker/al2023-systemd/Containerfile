@@ -7,7 +7,12 @@ VOLUME ["/sys/fs/cgroup"]
 
 #ENV container=docker
 
-RUN microdnf install -y systemd ssmtp procps file\
+RUN \
+    microdnf install -y \
+      systemd \
+      ssmtp \
+      procps \
+      file \
     && microdnf clean all \
     && echo "ForwardToConsole=yes" >> /etc/systemd/journald.conf \
     && systemctl mask console-getty.service getty@tty1.service \

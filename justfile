@@ -1,4 +1,5 @@
 #!/usr/bin/env just --justfile
+# vim:set ft=just ts=2 sts=4 sw=2 et:
 
 ################################################################################
 # justfile
@@ -12,14 +13,15 @@
 ################################################################################
 
 set unstable := false
+#set positional-arguments := true
 set allow-duplicate-recipes := false
 set allow-duplicate-variables := false
-#set positional-arguments := true
-set export := false
 set dotenv-required := false
 set dotenv-load := true
 #set dotenv-path := env_var('PWD')
 set dotenv-filename := ".env"
+set export := false
+set shell := ["bash", "-c"]
 
 ################################################################################
 ## Variables

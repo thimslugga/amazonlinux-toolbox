@@ -1,1 +1,12 @@
+# ShellCheck
+
+shell=bash
+
+# Always allow ShellCheck to open arbitrary files from 'source' statements.
 external-sources=true
+
+# Optional: Enable all optional checks
+enable=all
+
+# Optional: Set color settings (auto, always, never)
+color=auto

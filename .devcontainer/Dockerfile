@@ -1,9 +1,6 @@
 # Amazon Linux 2023 devcontainer
-
 ARG VARIANT=2023
-
-#FROM public.ecr.aws/amazonlinux/amazonlinux:${VARIANT}
-FROM amazonlinux:${VARIANT}
+FROM public.ecr.aws/amazonlinux/amazonlinux:${VARIANT}
 
 #ARG INSTALL_ZSH="true"
 #ARG UPGRADE_PACKAGES="false"

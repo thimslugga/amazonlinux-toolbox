@@ -1,0 +1,19 @@
+---
+# See https://yamllint.readthedocs.io/ for more details
+extends: default
+locale: en_US.UTF-8
+yaml-files:
+  - "*.yaml"
+  - "*.yml"
+  - ".yamllint"
+  - "*.bu"
+  - "*.butane"
+ignore: |
+  .git
+  .venv
+  venv
+  node_modules
+rules:
+  indentation:
+    spaces: 2
+    indent-sequences: false

@@ -52,3 +52,8 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## References
+
+- [https://gallery.ecr.aws/amazonlinux/amazonlinux](https://gallery.ecr.aws/amazonlinux/amazonlinux)
+- [Using the AL2023 base container image](https://docs.aws.amazon.com/linux/al2023/ug/base-container.html)

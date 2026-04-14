@@ -4,7 +4,7 @@ procps-ng
 sudo
 keyutils
 whois
-bind-utils
+bind-util
 bash-completion
 wget
 curl
@@ -70,4 +70,4 @@ zlib zlib-devel
 libffi-devel
 sqlite-devel
 openssl-devel
-ncurses-devel;
+ncurses-devel

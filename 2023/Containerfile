@@ -1,16 +1,13 @@
-################################################################################
-# Amazon Linux 2023 is the latest release of Amazon Linux.
-# https://public.ecr.aws/amazonlinux/amazonlinux:2023
-################################################################################
+#
+ARG VARIANT=2023
+FROM public.ecr.aws/amazonlinux/amazonlinux:${VARIANT}
 
-FROM public.ecr.aws/amazonlinux/amazonlinux:2023
-#FROM public.ecr.aws/amazonlinux/amazonlinux:2023 as builder
-
-LABEL com.github.containers.toolbox="true" \
-    name="amazonlinux-toolbx" \
+LABEL \
+    com.github.containers.toolbox="true" \
+    name="amazonlinux-toolbox" \
     version="2023" \
     usage="This image is meant to be used with the toolbox command." \
-    summary="The base image for creating Amazon Linux 2023 toolbx containers." \
+    summary="The base image for creating Amazon Linux 2023 toolbox containers." \
     maintainer="Adam Kaminski <adam@adamkaminski.com>"
 
 COPY packages missing-docs /
@@ -40,7 +37,7 @@ RUN set -ex \
     && sed -i -e 's/ ALL$/ NOPASSWD:ALL/' /etc/sudoers \
     && echo 'Defaults lecture="never"' > /etc/sudoers.d/disable-sudo-lecture \
     && echo VARIANT_ID=container >> /etc/os-release \
-    && rm -f /{packages,missing-docs}
+    && rm -f /{packages,missing-docs} ;
 
 # New fresh container to minimize dependencies
 #FROM builder

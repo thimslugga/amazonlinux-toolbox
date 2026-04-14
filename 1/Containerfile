@@ -1,21 +1,19 @@
-################################################################################
-# DEPRECATED: Amazon Linux 1 aka 2018.03 is no longer supported by Amazon.
-# See: https://aws.amazon.com/amazon-linux-1/
-################################################################################
-
 # Amazon Linux 1 aka 2018.03
-FROM public.ecr.aws/amazonlinux/amazonlinux:1
+ARG VARIANT=1
+FROM public.ecr.aws/amazonlinux/amazonlinux:${VARIANT}
 
-LABEL com.github.containers.toolbox="true" \
-    name="amazonlinux-toolbx" \
+LABEL \
+    com.github.containers.toolbox="true" \
+    name="amazonlinux-toolbox" \
     version="1" \
     usage="This image is meant to be used with the toolbox command." \
-    summary="The base image for creating Amazon Linux 1 toolbx containers." \
+    summary="The base image for creating Amazon Linux 1 toolbox containers." \
     maintainer="Adam Kaminski <adam@adamkaminski.com>"
 
 #COPY packages missing-docs /
 
-RUN sed -i '/tsflags=nodocs/d' /etc/yum.conf && \
+RUN \
+    sed -i '/tsflags=nodocs/d' /etc/yum.conf && \
     yum -y install $(<packages) && \
     yum -y upgrade && \
     yum clean all && \
@@ -23,4 +21,4 @@ RUN sed -i '/tsflags=nodocs/d' /etc/yum.conf && \
     sed -i -e 's/ ALL$/ NOPASSWD:ALL/' /etc/sudoers && \
     echo 'Defaults lecture="never"' | tee /etc/sudoers.d/disable-sudo-lecture && \
     echo VARIANT_ID=container | tee -a /etc/os-release && \
-    ln -s /etc/os-release /usr/lib/os-release
+    ln -s /etc/os-release /usr/lib/os-release ;
